@@ -119,7 +119,7 @@ header::after {
 }
 
 .animacao-ativa::after {
-  animation: luz-animada 3s ease-in-out forwards;
+  animation: luz-animada 3s ease-in-out infinite;
 }
 
 /* Media Query para telas menores que 768px (mobile) */
