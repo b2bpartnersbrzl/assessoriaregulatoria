@@ -126,7 +126,7 @@ header::after {
 }
 
 .animacao-ativa::after {
-  animation: luz-animada 3s linear infinite;
+  animation: luz-animada 5s linear infinite;
 }
 
 /* Media Query para telas menores que 768px (mobile) */
