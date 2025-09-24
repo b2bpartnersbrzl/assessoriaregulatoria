@@ -95,7 +95,7 @@ header::after {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(
     to right,
     #666666 0%,
@@ -113,9 +113,15 @@ header::after {
 @keyframes luz-animada {
   0% {
     background-position: 0% 0;
+    height: 2px;
+  }
+  50% {
+    background-position: -100% 0;
+    height: 4px;
   }
   100% {
     background-position: -200% 0;
+    height: 2px;
   }
 }
 
