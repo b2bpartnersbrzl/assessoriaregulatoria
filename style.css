@@ -24,6 +24,8 @@ header {
   padding: 10px 20px;
   border-bottom: 1px solid #666666;
   gap: 16px;
+  position: relative; /* Adicionado para posicionar o pseudo-elemento */
+  overflow: hidden; /* Adicionado para não ter barra de rolagem horizontal */
 }
 
 header > div {
@@ -85,12 +87,41 @@ nav a {
   transform-origin: center;
 }
 
+/* Pseudo-elemento e animação da "luz" */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%; /* Inicia a 100% fora da tela para garantir o início da animação */
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+/* Animação */
+@keyframes luz-animada {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.animacao-ativa::after {
+  animation: luz-animada 3s ease-in-out forwards;
+}
+
 /* Media Query para telas menores que 768px (mobile) */
 @media (max-width: 768px) {
   header {
     position: relative;
   }
-
 
   /* Esconde o menu de navegação tradicional */
   nav {
