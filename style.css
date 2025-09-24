@@ -104,23 +104,23 @@ header::after {
     #666666 60%,
     #666666 100%
   );
-  background-size: 200% 100%; 
-  background-position: 100% 0;
+  background-size: 300% 100%;
+  background-position: 0% 0;
   pointer-events: none; 
 }
 
 /* Animação */
 @keyframes luz-animada {
   0% {
-    background-position: 100% 0;
+    background-position: 0% 0;
   }
   100% {
-    background-position: -100% 0;
+    background-position: -200% 0;
   }
 }
 
 .animacao-ativa::after {
-  animation: luz-animada 3s ease-in-out infinite;
+  animation: luz-animada 3s linear infinite;
 }
 
 /* Media Query para telas menores que 768px (mobile) */
