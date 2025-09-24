@@ -5,6 +5,7 @@ header {
   justify-content: space-between; /* Distribui os itens: logo à esquerda e menu à direita */
   align-items: center; /* Centraliza os itens verticalmente */
   padding: 10px 20px; /* Adiciona um espaçamento interno para não grudar nas bordas */
+  border-bottom: 1px solid #666666; /* Adiciona uma linha cinza na parte inferior */
 }
 
 /* Estilos para o menu */
