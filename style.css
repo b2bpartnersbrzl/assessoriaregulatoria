@@ -1,27 +1,55 @@
+/* Correção para a linha "infinita" e ajuste geral do layout */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* Estilos gerais para o cabeçalho */
 header {
-  background-color: #fff; /* Fundo branco para o contêiner do cabeçalho */
-  display: flex; /* Habilita o Flexbox */
-  justify-content: space-between; /* Distribui os itens: logo à esquerda e menu à direita */
-  align-items: center; /* Centraliza os itens verticalmente */
-  padding: 10px 20px; /* Adiciona um espaçamento interno para não grudar nas bordas */
-  border-bottom: 1px solid #666666; /* Adiciona uma linha cinza na parte inferior */
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #666666;
 }
 
 /* Estilos para o menu */
 nav ul {
-  list-style: none; /* Remove os marcadores (bolinhas) da lista */
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex; /* Alinha os itens do menu um ao lado do outro */
+  display: flex;
 }
 
 nav li {
-  margin-left: 20px; /* Adiciona um espaço entre os itens do menu */
+  margin-left: 20px;
 }
 
 nav a {
-  text-decoration: none; /* Remove o sublinhado dos links */
-  color: #333; /* Cor do texto dos links */
-  font-family: sans-serif; /* Define uma fonte limpa */
+  text-decoration: none;
+  color: #333;
+  font-family: sans-serif;
+}
+
+/* Estilos para o botão do menu hambúrguer */
+.menu-hamburguer {
+  display: none; /* Por padrão, esconde o botão em telas grandes */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-hamburguer .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
 }
