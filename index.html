@@ -13,7 +13,7 @@
       <img src="images/logo.svg" alt="Logo Francisco Lucena Assessoria Regulatória">
     </div>
     
-    <nav>
+    <nav id="menu-principal">
       <ul>
         <li><a href="#">Início</a></li>
         <li><a href="#">Sobre</a></li>
@@ -22,12 +22,46 @@
       </ul>
     </nav>
     
-    <button class="menu-hamburguer">
+    <button class="menu-hamburguer" type="button" aria-label="Abrir menu" aria-controls="menu-principal" aria-expanded="false">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
   </header>
 
+ <script>
+    const menuButton = document.querySelector('.menu-hamburguer');
+    const navigation = document.getElementById('menu-principal');
+
+    if (menuButton && navigation) {
+      menuButton.addEventListener('click', () => {
+        const menuIsOpen = navigation.classList.toggle('menu-ativo');
+        menuButton.classList.toggle('ativo', menuIsOpen);
+        menuButton.setAttribute('aria-expanded', String(menuIsOpen));
+        menuButton.setAttribute('aria-label', menuIsOpen ? 'Fechar menu' : 'Abrir menu');
+      });
+
+      navigation.addEventListener('click', (event) => {
+        let currentElement = event.target instanceof Element ? event.target : null;
+        let clickedLink = null;
+
+        while (currentElement) {
+          if (currentElement.tagName && currentElement.tagName.toLowerCase() === 'a') {
+            clickedLink = currentElement;
+            break;
+          }
+
+          currentElement = currentElement.parentElement;
+        }
+
+        if (clickedLink) {
+          navigation.classList.remove('menu-ativo');
+          menuButton.classList.remove('ativo');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute('aria-label', 'Abrir menu');
+        }
+      });
+    }
+  </script>
 </body>
 </html>

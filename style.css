@@ -6,7 +6,7 @@
 body {
   margin: 0;
   padding: 0;
-font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 img {
@@ -23,7 +23,7 @@ header {
   align-items: center;
   padding: 10px 20px;
   border-bottom: 1px solid #666666;
-gap: 16px;
+  gap: 16px;
 }
 
 header > div {
@@ -54,6 +54,18 @@ nav a {
   font-family: sans-serif;
 }
 
+.menu-hamburguer.ativo .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-hamburguer.ativo .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-hamburguer.ativo .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Estilos para o botão do menu hambúrguer */
 .menu-hamburguer {
   display: none; /* Por padrão, esconde o botão em telas grandes */
@@ -70,17 +82,55 @@ nav a {
   background-color: #333;
   margin: 5px 0;
   transition: all 0.3s ease-in-out;
+  transform-origin: center;
 }
 
 /* Media Query para telas menores que 768px (mobile) */
 @media (max-width: 768px) {
+  header {
+    position: relative;
+  }
+
+
   /* Esconde o menu de navegação tradicional */
   nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #666666;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  nav.menu-ativo {
+    display: block;
   }
   
+  nav ul {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav li + li {
+    border-top: 1px solid #e5e5e5;
+  }
+
+  nav a {
+    display: block;
+    padding: 12px 20px;
+  }
+
+
   /* Exibe o botão do menu hambúrguer */
   .menu-hamburguer {
     display: block;
+    margin-left: auto;
   }
 }
