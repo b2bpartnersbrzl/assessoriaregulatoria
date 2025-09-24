@@ -1,0 +1,26 @@
+/* Estilos gerais para o cabeçalho */
+header {
+  background-color: #fff; /* Fundo branco para o contêiner do cabeçalho */
+  display: flex; /* Habilita o Flexbox */
+  justify-content: space-between; /* Distribui os itens: logo à esquerda e menu à direita */
+  align-items: center; /* Centraliza os itens verticalmente */
+  padding: 10px 20px; /* Adiciona um espaçamento interno para não grudar nas bordas */
+}
+
+/* Estilos para o menu */
+nav ul {
+  list-style: none; /* Remove os marcadores (bolinhas) da lista */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Alinha os itens do menu um ao lado do outro */
+}
+
+nav li {
+  margin-left: 20px; /* Adiciona um espaço entre os itens do menu */
+}
+
+nav a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: #333; /* Cor do texto dos links */
+  font-family: sans-serif; /* Define uma fonte limpa */
+}
