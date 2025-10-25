@@ -49,8 +49,6 @@ body {
   max-width: 200px; 
   height: auto; 
   z-index: 2; 
-  
-  /* Transição 'all' para animar posição e tamanho suavemente */
   transition: all 0.3s ease;
 }
 
@@ -61,13 +59,17 @@ body {
 @media (max-width: 768px) {
   
   .slideshow-container .logo-fixo {
-    /* 1. Volta a centralizar (vertical e horizontal) */
-    top: 50%;
+    /* 1. MODIFICADO: Posição no topo (com 20px de respiro) */
+    top: 20px;
+    
+    /* 2. Mantém a base da centralização horizontal */
     left: 50%;
-    transform: translate(-50%, -50%); 
+    
+    /* 3. MODIFICADO: Transformação SÓ horizontal (translateX) */
+    transform: translateX(-50%); 
 
-    /* 2. Ocupa quase toda a lateralidade */
+    /* 4. Mantém a largura solicitada */
     width: 80%; 
-    max-width: 450px; /* Um limite para telas "móveis" maiores */
+    max-width: 450px; 
   }
 }
