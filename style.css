@@ -43,24 +43,15 @@ body {
 */
 .slideshow-container .logo-fixo {
   position: absolute;
-  
-  /* MODIFICADO: 
-    Removemos a centralização e definimos a posição 
-    superior esquerda com um respiro de 20px. 
-    Ajuste este valor conforme desejar.
-  */
   top: 20px;
   left: 20px;
-  
-  /* REMOVIDO: O 'transform' não é mais necessário */
-  /* transform: translate(-50%, -50%); */
 
   /* MODIFICADO: 
-    Ajustamos o tamanho, pois o logo no canto 
-    geralmente é menor.
+    Valores aumentados para um logo maior.
+    Ajuste '35%' e '280px' conforme sua necessidade.
   */
-  width: 25%; 
-  max-width: 200px; 
+  width: 35%; 
+  max-width: 280px; 
   height: auto; 
   z-index: 2; 
 }
