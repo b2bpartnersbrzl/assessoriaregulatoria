@@ -3,65 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Lucena</title>
+  <title>Slideshow de Imagens</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="animacao-ativa">
-    <div>
-      <img src="images/logo.svg" alt="Logo Francisco Lucena Assessoria Regulatória">
-    </div>
-    
-    <nav id="menu-principal">
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Serviços</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </nav>
-    
-    <button class="menu-hamburguer" type="button" aria-label="Abrir menu" aria-controls="menu-principal" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-  </header>
+  <div class="slideshow-container">
+    <img src="https://via.placeholder.com/900x500/cccccc/000000?text=Imagem+1" alt="Imagem descritiva 1" class="ativa">
+    <img src="https://via.placeholder.com/900x500/999999/000000?text=Imagem+2" alt="Imagem descritiva 2">
+    <img src="https://via.placeholder.com/900x500/666666/ffffff?text=Imagem+3" alt="Imagem descritiva 3">
+  </div>
 
- <script>
-    const menuButton = document.querySelector('.menu-hamburguer');
-    const navigation = document.getElementById('menu-principal');
 
-    if (menuButton && navigation) {
-      menuButton.addEventListener('click', () => {
-        const menuIsOpen = navigation.classList.toggle('menu-ativo');
-        menuButton.classList.toggle('ativo', menuIsOpen);
-        menuButton.setAttribute('aria-expanded', String(menuIsOpen));
-        menuButton.setAttribute('aria-label', menuIsOpen ? 'Fechar menu' : 'Abrir menu');
-      });
+  <script>
+    // Seleciona todas as imagens dentro do slideshow
+    const imagens = document.querySelectorAll('.slideshow-container img');
+    // Conta quantas imagens existem
+    const totalImagens = imagens.length;
+    // Define um contador para saber qual imagem está visível
+    let indiceAtual = 0; 
 
-      navigation.addEventListener('click', (event) => {
-        let currentElement = event.target instanceof Element ? event.target : null;
-        let clickedLink = null;
+    // Função que troca a imagem
+    function trocarImagem() {
+      // 1. Remove a classe "ativa" da imagem que está visível
+      imagens[indiceAtual].classList.remove('ativa');
 
-        while (currentElement) {
-          if (currentElement.tagName && currentElement.tagName.toLowerCase() === 'a') {
-            clickedLink = currentElement;
-            break;
-          }
+      // 2. Calcula qual é a próxima imagem
+      // O % (módulo) faz o contador voltar a 0 quando chega ao fim
+      indiceAtual = (indiceAtual + 1) % totalImagens;
 
-          currentElement = currentElement.parentElement;
-        }
-
-        if (clickedLink) {
-          navigation.classList.remove('menu-ativo');
-          menuButton.classList.remove('ativo');
-          menuButton.setAttribute('aria-expanded', 'false');
-          menuButton.setAttribute('aria-label', 'Abrir menu');
-        }
-      });
+      // 3. Adiciona a classe "ativa" para a nova imagem, mostrando-a
+      imagens[indiceAtual].classList.add('ativa');
     }
+
+    // Define um intervalo de tempo para chamar a função "trocarImagem"
+    // 4000 milissegundos = 4 segundos
+    setInterval(trocarImagem, 4000);
   </script>
+
 </body>
 </html>
