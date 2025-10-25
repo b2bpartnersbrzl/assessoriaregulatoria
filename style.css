@@ -47,11 +47,30 @@ body {
   left: 20px;
 
   /* MODIFICADO: 
-    Valores aumentados para um logo maior.
-    Ajuste '35%' e '280px' conforme sua necessidade.
+    Este é agora o tamanho PADRÃO (desktop).
   */
-  width: 35%; 
-  max-width: 280px; 
+  width: 25%; 
+  max-width: 200px; 
   height: auto; 
   z-index: 2; 
+  
+  /* Adicionamos uma transição para suavizar a mudança 
+     caso o usuário redimensione a janela */
+  transition: width 0.3s ease, max-width 0.3s ease;
+}
+
+
+/* NOVO BLOCO: Media Query para telas menores */
+
+/* Quando a tela tiver 768px de largura ou MENOS (mobile) */
+@media (max-width: 768px) {
+  
+  /* Vamos aplicar um tamanho MAIOR para o logo */
+  .slideshow-container .logo-fixo {
+    /* Valores aumentados para o mobile.
+      Ajuste '35%' e '280px' conforme sua necessidade.
+    */
+    width: 35%; 
+    max-width: 280px; 
+  }
 }
