@@ -14,9 +14,9 @@ body {
 .slideshow-container {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  /* max-width: 900px;  <-- REMOVIDO (para ocupar 100% da largura) */
   aspect-ratio: 16 / 9;
-  margin: 20px auto; 
+  margin: 0; /* <-- MODIFICADO (para remover margens externas) */
   overflow: hidden; 
   background-color: #ddd;
 }
