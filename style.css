@@ -14,9 +14,14 @@ body {
 .slideshow-container {
   position: relative;
   width: 100%;
-  /* max-width: 900px;  <-- REMOVIDO (para ocupar 100% da largura) */
-  aspect-ratio: 16 / 9;
-  margin: 0; /* <-- MODIFICADO (para remover margens externas) */
+  
+  /* MODIFICADO: 
+    Removemos o 'aspect-ratio' e definimos uma altura fixa.
+    Ajuste '500px' para a altura que desejar.
+  */
+  height: 500px; 
+  
+  margin: 0; /* Garante que não há respiro (margem) externo */
   overflow: hidden; 
   background-color: #ddd;
 }
@@ -29,11 +34,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  
+  /* 'object-fit: cover' é importante aqui:
+    Ele faz a imagem cobrir todo o espaço (100% x 500px), 
+    sem distorcer a imagem (ela será cortada se necessário).
+  */
   object-fit: cover; 
+  
   opacity: 0; 
   transition: opacity 1s ease-in-out; 
-  
-  /* Define a ordem de empilhamento (ficará atrás do logo) */
   z-index: 1; 
 }
 
@@ -45,22 +54,12 @@ body {
 /* Estilo para o LOGO FIXO 
 */
 .slideshow-container .logo-fixo {
-  /* Posição absoluta para flutuar */
   position: absolute;
-  
-  /* Centraliza o logo (horizontal e vertical) */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); 
-
-  /* Define um tamanho (ex: 50% da largura do container) */
   width: 50%; 
-  /* Define um limite para o logo não ficar gigante */
   max-width: 300px; 
-  height: auto; /* Mantém a proporção */
-
-  /* Define a ordem de empilhamento (ficará na FRENTE)
-    (z-index: 2 é maior que z-index: 1)
-  */
+  height: auto; 
   z-index: 2; 
 }
