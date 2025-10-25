@@ -7,51 +7,60 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #f0f0f0; /* Um fundo para a página */
+  background-color: #f0f0f0;
 }
 
 /* O contêiner principal do slideshow */
 .slideshow-container {
-  /* Posição relativa é necessária para que as imagens (com posição absoluta) 
-     fiquem contidas dentro dele */
   position: relative;
-  
-  /* Define um tamanho */
   width: 100%;
-  max-width: 900px; /* Largura máxima */
-  aspect-ratio: 16 / 9; /* Proporção (largura / altura) */
-
-  /* Centraliza o contêiner na página */
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
   margin: 20px auto; 
-  
-  /* Esconde qualquer parte da imagem que transborde */
   overflow: hidden; 
-  
-  background-color: #ddd; /* Cor de fundo enquanto as imagens carregam */
+  background-color: #ddd;
 }
 
-/* Estilo para TODAS as imagens dentro do slideshow */
-.slideshow-container img {
-  /* Posição absoluta faz com que todas as imagens 
-     fiquem "empilhadas" no mesmo lugar */
+/* Estilo para as IMAGENS DO SLIDESHOW 
+*/
+.slideshow-container .slideshow-imagem {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  
-  /* Garante que a imagem cubra todo o espaço, sem distorcer */
   object-fit: cover; 
-
-  /* Por padrão, todas as imagens ficam invisíveis */
   opacity: 0; 
-
-  /* A animação de transição (fade) que dura 1 segundo */
   transition: opacity 1s ease-in-out; 
+  
+  /* Define a ordem de empilhamento (ficará atrás do logo) */
+  z-index: 1; 
 }
 
-/* Estilo APENAS para a imagem que tem a classe "ativa" */
-.slideshow-container img.ativa {
-  /* Torna a imagem ativa visível */
+/* Estilo para a imagem ATIVA do slideshow */
+.slideshow-container .slideshow-imagem.ativa {
   opacity: 1; 
+}
+
+/* Estilo para o LOGO FIXO 
+*/
+.slideshow-container .logo-fixo {
+  /* Posição absoluta para flutuar */
+  position: absolute;
+  
+  /* Centraliza o logo (horizontal e vertical) */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+
+  /* Define um tamanho (ex: 50% da largura do container) */
+  width: 50%; 
+  /* Define um limite para o logo não ficar gigante */
+  max-width: 300px; 
+  height: auto; /* Mantém a proporção */
+
+  /* Define a ordem de empilhamento (ficará na FRENTE)
+    (z-index: 2 é maior que z-index: 1)
+  */
+  z-index: 2; 
 }
