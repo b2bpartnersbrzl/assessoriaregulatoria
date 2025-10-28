@@ -16,7 +16,44 @@
     <img src="images/logo.svg" alt="Logo Fixo" class="logo-fixo">
   </div>
 
-
+  <div class="container-geral-formulario">
+    <div class="formulario-contato">
+      <form action="#" method="POST"> <h2>Contato</h2>
+        
+        <div class="campo-form">
+          <label for="nome">Nome (obrigatório)</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        
+        <div class="campo-form">
+          <label for="empresa">Empresa (opcional)</label>
+          <input type="text" id="empresa" name="empresa">
+        </div>
+        
+        <div class="campo-form">
+          <label for="email">E-mail (obrigatório)</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="campo-form">
+          <label for="celular">Celular (obrigatório)</label>
+          <input type="tel" id="celular" name="celular" required>
+        </div>
+        
+        <div class="campo-form">
+          <label for="resumo">Resumo da solicitação (opcional)</label>
+          <textarea id="resumo" name="resumo" rows="4"></textarea>
+        </div>
+        
+        <div class="campo-form-checkbox">
+          <input type="checkbox" id="lgpd" name="lgpd" required>
+          <label for="lgpd">Declaro que li e concordo com a Política de Privacidade e permito o uso dos meus dados para este contato.</label>
+        </div>
+        
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+    </div>
+  </div>
   <script>
     // MODIFICADO: Seleciona apenas as imagens com a classe "slideshow-imagem"
     const imagens = document.querySelectorAll('.slideshow-container .slideshow-imagem');
