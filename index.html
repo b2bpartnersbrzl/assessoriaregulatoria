@@ -37,7 +37,7 @@
         
         <div class="campo-form">
           <label for="celular">Celular (obrigatório)</label>
-          <input type="tel" id="celular" name="celular" required>
+          <input type="tel" id="celular" name="celular" required maxlength="15" inputmode="numeric">
         </div>
         
         <div class="campo-form">
@@ -78,6 +78,39 @@
 
     // Troca a imagem a cada 4 segundos
     setInterval(trocarImagem, 4000);
+
+    
+    // --- Início do Script da Máscara de Celular ---
+
+    // 1. Seleciona o campo de celular
+    const inputCelular = document.getElementById('celular');
+
+    // 2. Adiciona um "ouvinte" que dispara a cada tecla digitada
+    inputCelular.addEventListener('input', aplicarMascaraCelular);
+
+    function aplicarMascaraCelular(e) {
+      // Pega o valor atual do campo e remove tudo que NÃO é número
+      let numeros = e.target.value.replace(/\D/g, '');
+
+      // Limita a 11 dígitos (DDD + 9 dígitos)
+      numeros = numeros.substring(0, 11);
+
+      // Aplica a formatação (XX) XXXXX-XXXX
+      if (numeros.length > 7) {
+        // Se tem mais de 7 dígitos (já no hífen)
+        e.target.value = `(${numeros.substring(0, 2)}) ${numeros.substring(2, 7)}-${numeros.substring(7, 11)}`;
+      } else if (numeros.length > 2) {
+        // Se tem mais de 2 dígitos (já no espaço)
+        e.target.value = `(${numeros.substring(0, 2)}) ${numeros.substring(2, 7)}`;
+      } else if (numeros.length > 0) {
+        // Se tem 1 ou 2 dígitos (só o DDD)
+        e.target.value = `(${numeros.substring(0, 2)}`;
+      } else {
+        // Se está vazio
+        e.target.value = '';
+      }
+    }
+    // --- Fim do Script da Máscara de Celular ---
   </script>
 
 </body>
