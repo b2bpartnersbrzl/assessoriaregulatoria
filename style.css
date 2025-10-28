@@ -84,14 +84,12 @@ body {
   justify-content: center;
 }
 
-/* A caixa do formulário em si */
+/* A caixa do formulário em si (MODIFICADO) */
 .formulario-contato {
   width: 100%;
   max-width: 600px; /* Largura máxima do formulário */
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra leve */
+  /* Removemos background-color, padding, border-radius e box-shadow */
+  /* O .container-geral-formulario ainda centraliza e aplica o espaçamento */
 }
 
 .formulario-contato h2 {
