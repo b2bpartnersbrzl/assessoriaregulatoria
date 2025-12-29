@@ -1,24 +1,28 @@
+Entendido. Ajustei o código para remover toda a lógica e estrutura do slideshow, substituindo-o por uma única imagem estática conforme solicitado. Mantive a estrutura do seu formulário original exatamente como estava no primeiro arquivo enviado, apenas corrigindo a substituição da imagem.
+
+Aqui está o `index.html` completo e simplificado:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slideshow com Logo</title>
+  <title>Página Estática com Logo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="slideshow-container">
-    <img src="https://via.placeholder.com/900x500/cccccc/000000?text=Imagem+1" alt="Imagem descritiva 1" class="slideshow-imagem ativa">
-    <img src="https://via.placeholder.com/900x500/999999/000000?text=Imagem+2" alt="Imagem descritiva 2" class="slideshow-imagem">
-    <img src="https://via.placeholder.com/900x500/666666/ffffff?text=Imagem+3" alt="Imagem descritiva 3" class="slideshow-imagem">
-
+    <img src="images/teste0001ar.webp" alt="Imagem de fundo" class="slideshow-imagem ativa">
+    
     <img src="images/logo.svg" alt="Logo Fixo" class="logo-fixo">
   </div>
 
   <div class="container-geral-formulario">
     <div class="formulario-contato">
-      <form action="#" method="POST"> <h2>Contato</h2>
+      <form action="#" method="POST"> 
+        <h2>Contato</h2>
         
         <div class="campo-form">
           <label for="nome">Nome (obrigatório)</label>
@@ -54,64 +58,31 @@
       </form>
     </div>
   </div>
+
   <script>
-    // MODIFICADO: Seleciona apenas as imagens com a classe "slideshow-imagem"
-    const imagens = document.querySelectorAll('.slideshow-container .slideshow-imagem');
-    
-    // O restante do script não muda
-    const totalImagens = imagens.length;
-    let indiceAtual = 0; 
-
-    function trocarImagem() {
-      // Verifica se existem imagens para evitar erros
-      if (totalImagens === 0) return; 
-      
-      // 1. Remove a classe "ativa" da imagem atual
-      imagens[indiceAtual].classList.remove('ativa');
-
-      // 2. Calcula a próxima imagem
-      indiceAtual = (indiceAtual + 1) % totalImagens;
-
-      // 3. Adiciona a classe "ativa" na próxima imagem
-      imagens[indiceAtual].classList.add('ativa');
-    }
-
-    // Troca a imagem a cada 4 segundos
-    setInterval(trocarImagem, 4000);
-
-    
-    // --- Início do Script da Máscara de Celular ---
-
-    // 1. Seleciona o campo de celular
+    // Script da Máscara de Celular
     const inputCelular = document.getElementById('celular');
-
-    // 2. Adiciona um "ouvinte" que dispara a cada tecla digitada
     inputCelular.addEventListener('input', aplicarMascaraCelular);
 
     function aplicarMascaraCelular(e) {
-      // Pega o valor atual do campo e remove tudo que NÃO é número
       let numeros = e.target.value.replace(/\D/g, '');
-
-      // Limita a 11 dígitos (DDD + 9 dígitos)
       numeros = numeros.substring(0, 11);
 
-      // Aplica a formatação (XX) XXXXX-XXXX
       if (numeros.length > 7) {
-        // Se tem mais de 7 dígitos (já no hífen)
         e.target.value = `(${numeros.substring(0, 2)}) ${numeros.substring(2, 7)}-${numeros.substring(7, 11)}`;
       } else if (numeros.length > 2) {
-        // Se tem mais de 2 dígitos (já no espaço)
         e.target.value = `(${numeros.substring(0, 2)}) ${numeros.substring(2, 7)}`;
       } else if (numeros.length > 0) {
-        // Se tem 1 ou 2 dígitos (só o DDD)
         e.target.value = `(${numeros.substring(0, 2)}`;
       } else {
-        // Se está vazio
         e.target.value = '';
       }
     }
-    // --- Fim do Script da Máscara de Celular ---
   </script>
 
 </body>
 </html>
+
+```
+
+Deseja que eu limpe as regras de animação do `style.css` que não serão mais usadas?
